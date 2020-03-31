@@ -3,27 +3,27 @@
   import Login from "./components/Login";
   import Dapp from "../src";
   import { dapp } from "../src";
-  import { wallet, profile, settings, infra } from "../src/stores";
+  import { infra, profile, settings, wallet } from "../src/stores";
 
   let logging = false;
 
   infra.subscribe(_infra => {
-    console.log("[infra update]");
+    console.log("[infra:update]");
     console.log(_infra);
   });
 
   profile.subscribe(_profile => {
-    console.log("[profile update]");
+    console.log("[profile:update]");
     console.log(_profile);
   });
 
   settings.subscribe(_settings => {
-    console.log("[settings update]");
+    console.log("[settings:update]");
     console.log(_settings);
   });
 
   wallet.subscribe(_wallet => {
-    console.log("[wallet update]");
+    console.log("[wallet:update]");
     console.log(_wallet);
   });
 </script>
