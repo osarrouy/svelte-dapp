@@ -110,10 +110,10 @@ const wallet = {
   },
   logout: () => {
     $wallet.update(_wallet => {
-      if (_wallet.type === "metamask") {
+      if (_wallet && _wallet.type === "metamask") {
         window.ethereum.on("accountsChanged", _ => {});
         window.ethereum.on("networkChanged", _ => {});
-      } else if (_wallet.type === "fortmatic") {
+      } else if (_wallet && _wallet.type === "fortmatic") {
         const fm = new Fortmatic(settings.fortmatic.key);
         fm.user.logout();
       }
