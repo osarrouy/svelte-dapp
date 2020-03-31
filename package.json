@@ -1,0 +1,34 @@
+{
+  "name": "svelte-app",
+  "version": "1.0.0",
+  "devDependencies": {
+    "autoprefixer": "^9.7.5",
+    "cross-env": "^5.2.0",
+    "css-loader": "^2.1.1",
+    "did-resolver": "0.0.7",
+    "mini-css-extract-plugin": "^0.6.0",
+    "sass": "^1.26.3",
+    "serve": "^11.0.0",
+    "style-loader": "^0.23.1",
+    "svelte": "^3.0.0",
+    "svelte-loader": "2.13.3",
+    "svelte-preprocess": "^3.5.0",
+    "svg-inline-loader": "^0.8.2",
+    "webpack": "^4.30.0",
+    "webpack-cli": "^3.3.0",
+    "webpack-dev-server": "^3.3.1"
+  },
+  "scripts": {
+    "build": "cross-env NODE_ENV=production webpack",
+    "dev": "webpack-dev-server --content-base public",
+    "example:start": "npx webpack-dev-server --config ./.webpack/example.config.js",
+    "example:build": "npx webpack --config ./.webpack/example.config.js"
+  },
+  "dependencies": {
+    "3box": "^1.17.1",
+    "3id-resolver": "0.0.6",
+    "ethereum-blockies-base64": "^1.0.2",
+    "fortmatic": "^2.0.6",
+    "web3-core-promievent": "^1.2.6"
+  }
+}

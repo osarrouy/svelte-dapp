@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="257px" height="238px" viewBox="0 0 257 238" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 54.1 (76490) - https://sketchapp.com -->
+    <title>metamask</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="metamask" fill-rule="nonzero">
+            <polygon id="Path" stroke="#E2761B" fill="#E2761B" points="243.1 0.5 143.6 74.4 162 30.8"></polygon>
+            <g id="Group" transform="translate(2.000000, 0.000000)" fill="#E4761B" stroke="#E4761B">
+                <polygon id="Path" points="11.4 0.5 110.1 75.1 92.6 30.8"></polygon>
+                <polygon id="Path" points="205.3 171.8 178.8 212.4 235.5 228 251.8 172.7"></polygon>
+                <polygon id="Path" points="0.9 172.7 17.1 228 73.8 212.4 47.3 171.8"></polygon>
+                <polygon id="Path" points="70.6 103.2 54.8 127.1 111.1 129.6 109.1 69.1"></polygon>
+                <polygon id="Path" points="181.9 103.2 142.9 68.4 141.6 129.6 197.8 127.1"></polygon>
+                <polygon id="Path" points="73.8 212.4 107.6 195.9 78.4 173.1"></polygon>
+                <polygon id="Path" points="144.9 195.9 178.8 212.4 174.1 173.1"></polygon>
+            </g>
+            <g id="Group" transform="translate(75.000000, 195.000000)" fill="#D7C1B3" stroke="#D7C1B3">
+                <polygon id="Path" points="105.8 17.4 71.9 0.9 74.6 23 74.3 32.3"></polygon>
+                <polygon id="Path" points="0.8 17.4 32.3 32.3 32.1 23 34.6 0.9"></polygon>
+            </g>
+            <polygon id="Path" stroke="#233447" fill="#233447" points="107.8 158.5 79.6 150.2 99.5 141.1"></polygon>
+            <polygon id="Path" stroke="#233447" fill="#233447" points="148.7 158.5 157 141.1 177 150.2"></polygon>
+            <g id="Group" transform="translate(49.000000, 127.000000)" fill="#CD6116" stroke="#CD6116">
+                <polygon id="Path" points="26.8 85.4 31.6 44.8 0.3 45.7"></polygon>
+                <polygon id="Path" points="127 44.8 131.8 85.4 158.3 45.7"></polygon>
+                <polygon id="Path" points="150.8 0.1 94.6 2.6 99.8 31.5 108.1 14.1 128.1 23.2"></polygon>
+                <polygon id="Path" points="30.6 23.2 50.6 14.1 58.8 31.5 64.1 2.6 7.8 0.1"></polygon>
+            </g>
+            <g id="Group" transform="translate(56.000000, 127.000000)" fill="#E4751F" stroke="#E4751F">
+                <polygon id="Path" points="0.8 0.1 24.4 46.1 23.6 23.2"></polygon>
+                <polygon id="Path" points="121.1 23.2 120.1 46.1 143.8 0.1"></polygon>
+                <polygon id="Path" points="57.1 2.6 51.8 31.5 58.4 65.6 59.9 20.7"></polygon>
+                <polygon id="Path" points="87.6 2.6 84.9 20.6 86.1 65.6 92.8 31.5"></polygon>
+            </g>
+            <polygon id="Path" stroke="#F6851B" fill="#F6851B" points="148.8 158.5 142.1 192.6 146.9 195.9 176.1 173.1 177.1 150.2"></polygon>
+            <polygon id="Path" stroke="#F6851B" fill="#F6851B" points="79.6 150.2 80.4 173.1 109.6 195.9 114.4 192.6 107.8 158.5"></polygon>
+            <polygon id="Path" stroke="#C0AD9E" fill="#C0AD9E" points="149.3 227.3 149.6 218 147.1 215.8 109.4 215.8 107.1 218 107.3 227.3 75.8 212.4 86.8 221.4 109.1 236.9 147.4 236.9 169.8 221.4 180.8 212.4"></polygon>
+            <polygon id="Path" stroke="#161616" fill="#161616" points="146.9 195.9 142.1 192.6 114.4 192.6 109.6 195.9 107.1 218 109.4 215.8 147.1 215.8 149.6 218"></polygon>
+            <g id="Group" fill="#763D16" stroke="#763D16">
+                <polygon id="Path" points="247.3 79.2 255.8 38.4 243.1 0.5 146.9 71.9 183.9 103.2 236.2 118.5 247.8 105 242.8 101.4 250.8 94.1 244.6 89.3 252.6 83.2"></polygon>
+                <polygon id="Path" points="0.8 38.4 9.3 79.2 3.9 83.2 11.9 89.3 5.8 94.1 13.8 101.4 8.8 105 20.3 118.5 72.6 103.2 109.6 71.9 13.4 0.5"></polygon>
+            </g>
+            <polygon id="Path" stroke="#F6851B" fill="#F6851B" points="236.2 118.5 183.9 103.2 199.8 127.1 176.1 173.1 207.3 172.7 253.8 172.7"></polygon>
+            <polygon id="Path" stroke="#F6851B" fill="#F6851B" points="72.6 103.2 20.3 118.5 2.9 172.7 49.3 172.7 80.4 173.1 56.8 127.1"></polygon>
+            <polygon id="Path" stroke="#F6851B" fill="#F6851B" points="143.6 129.6 146.9 71.9 162.1 30.8 94.6 30.8 109.6 71.9 113.1 129.6 114.3 147.8 114.4 192.6 142.1 192.6 142.3 147.8"></polygon>
+        </g>
+    </g>
+</svg>
