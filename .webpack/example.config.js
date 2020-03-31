@@ -16,14 +16,14 @@ module.exports = {
     mainFields: ["svelte", "browser", "module", "main"]
   },
   output: {
-    // path: path.resolve(__dirname, "/../example/public"),
-    path: "/",
+    path: path.resolve(__dirname, "../example/public"),
+    // path: "/",
     // publicPath: path.resolve(__dirname + "/../example/public"),
     filename: "[name].js",
     chunkFilename: "[name].[id].js"
   },
   devServer: {
-    contentBase: path.resolve(__dirname + "/../example/public")
+    contentBase: path.resolve(__dirname, "../example/public")
   },
   module: {
     rules: [
