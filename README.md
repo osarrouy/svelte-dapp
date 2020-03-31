@@ -72,28 +72,28 @@ You can browse the [`example`](example/) folder to discover more advanced usage.
 - Metamask
 - Fortmatic
 
-```javacript
+```javascript
 await dapp.login('metamask')
   .on('wallet:syncing', () => {
-    // waiting for the user to enable metamask or log into formatic or ...
+    // waiting for the user to log in and / or enable her wallet
   })
   .on('wallet:synced', account => {
-    // the user wallet is now enabled
+    // the user has logged in and / or enabled her wallet
     // the wallet store is filled with informations
   })
   .on('profile:syncing', () => {
-    // the user 3Box profile is being synced
+    // waiting for the user 3Box profile to be synced
   })
   .on('profile:synced', profile => {
     // the user 3Box profile is now synced
-    // the profile store is filled with information
+    // the profile store is filled with informations
   })
   .on('storage:syncing', () => {
-    // the user 3Box dapp storage is being synced
+    // waiting for the user 3Box dapp storage space to be synced
   })
   .on('storage:synced', space => {
-    // the user 3Box dapp storage is now synced
-    // the dapp can read and write from storage
+    // the user 3Box dapp storage space is now synced
+    // the dapp can read and write from dapp.storage
   })
 
 ```
