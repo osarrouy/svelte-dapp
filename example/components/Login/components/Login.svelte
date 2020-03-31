@@ -124,8 +124,6 @@
     justify-content: center;
 
     pre {
-      font-family: sans-serif;
-      font-weight: 100;
       margin-top: 1rem;
     }
   }

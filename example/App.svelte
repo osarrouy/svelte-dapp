@@ -1,11 +1,13 @@
 <script>
   import Button from "./components/Button";
+  import Layout from "./components/Layout";
   import Login from "./components/Login";
+  import Profile from "./components/Profile";
   import Dapp from "../src";
   import { dapp } from "../src";
   import { infra, profile, settings, wallet } from "../src/stores";
 
-  let logging = false;
+  let isLogging = false;
 
   infra.subscribe(_infra => {
     console.log("[infra:update]");
@@ -29,62 +31,30 @@
 </script>
 
 <style lang="scss">
-  main {
-    display: grid;
-    grid-template-columns: calc(50% - 2rem) calc(50% - 2rem);
-    grid-template-rows: 100%;
-    grid-template-areas: "profile action";
-    grid-column-gap: 4rem;
-    min-height: 100vh;
-  }
 
-  .profile {
-    grid-area: profile;
-    align-self: center;
-    justify-self: end;
-    display: flex;
-    img {
-      height: 50px;
-      margin-right: 1rem;
-    }
-  }
-
-  .action {
-    grid-area: action;
-    align-self: center;
-    justify-self: start;
-  }
-
-  .small {
-    font-size: 0.8rem;
-  }
 </style>
 
 <Dapp
-  id="megayolospace"
+  id="svelte-dapp"
   network="mainnet"
   fortmatic={{ key: 'pk_live_E05E40D61421710B' }}>
-  {#if logging}
-    <Login on:close={() => (logging = false)} />
+  {#if isLogging}
+    <Login on:close={() => (isLogging = false)} />
   {/if}
-  <main>
-    <section class="profile">
+  <Layout>
+    <section slot="profile">
       {#if $profile}
-        <img src={$profile.avatar} alt="avatar" />
-        <div class="data">
-          <a href={$profile.url} target="_blank">{$profile.name}</a>
-          <p class="small">{$profile.address}</p>
-        </div>
+        <Profile profile={$profile} />
       {:else}
-        <p>Hi, please login to move on.</p>
+        <p>Hi stranger...</p>
       {/if}
     </section>
-    <section class="action">
+    <section slot="buttons">
       {#if $profile}
         <Button on:click={() => dapp.logout()}>logout</Button>
       {:else}
-        <Button on:click={() => (logging = true)}>login</Button>
+        <Button on:click={() => (isLogging = true)}>login</Button>
       {/if}
     </section>
-  </main>
+  </Layout>
 </Dapp>

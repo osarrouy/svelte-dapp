@@ -145,7 +145,17 @@ html {
   );
   color: rgba(255, 255, 255, 0.8);
   font-family: "SF Mono", monospace;
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 100;
   min-height: 100vh;
+}
+
+a {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+pre {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
 }
