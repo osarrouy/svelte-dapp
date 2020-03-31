@@ -2,7 +2,9 @@
 
 > DApp SSO made easy with 3Box and Svelte.
 
-Check the demo [https://svelte-dapp.netlify.com/](here).
+## Demo
+
+Check the demo (here)[https://svelte-dapp.netlify.com/].
 
 ## Installation
 
