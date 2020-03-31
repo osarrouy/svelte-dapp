@@ -45,29 +45,27 @@
       await dapp
         .login(wallet)
         .on("wallet:syncing", () => {
-          console.log("wallet:syncing");
+          console.log("[wallet:syncing]");
           message = "logging in with " + wallet;
         })
         .on("wallet:synced", account => {
-          console.log("wallet:synced");
+          console.log("[wallet:synced]");
           message = "account " + account + " enabled";
         })
         .on("profile:syncing", () => {
-          console.log("profile:syncing");
+          console.log("[profile:syncing]");
           message = "syncing 3Box profile";
         })
         .on("profile:synced", profile => {
-          console.log("profile:synced");
-          console.log(profile);
+          console.log("[profile:synced]");
           message = "3Box profile synced";
         })
-        .on("storage:syncing", _ => {
-          console.log("storage:syncing");
+        .on("storage:syncing", () => {
+          console.log("[storage:syncing]");
           message = "syncing 3Box space";
         })
         .on("storage:synced", space => {
-          console.log("storage:synced");
-          console.log(space);
+          console.log("[storage:synced]");
           message = "3Box space synced";
         });
 
@@ -173,9 +171,6 @@
 </style>
 
 <div class="overlay" on:click={close} transition:fade>
-  {#if $wallet}
-    <p>{$wallet.account}</p>
-  {/if}
   {#if loading}
     <section class="spinner" transition:fly>
       <div class="loader">loading...</div>
