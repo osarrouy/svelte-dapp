@@ -29,6 +29,7 @@
     "3id-resolver": "0.0.6",
     "ethereum-blockies-base64": "^1.0.2",
     "fortmatic": "^2.0.6",
+    "svelte-popover": "^2.0.8",
     "web3-core-promievent": "^1.2.6"
   }
 }

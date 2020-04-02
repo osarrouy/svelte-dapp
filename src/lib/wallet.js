@@ -82,7 +82,7 @@ const wallet = {
           .on("wallet:syncing", () => {
             pe.eventEmitter.emit("wallet:syncing");
           })
-          .on("wallet:syncing", _account => {
+          .on("wallet:synced", _account => {
             pe.eventEmitter.emit("wallet:synced", _account);
           })
           .then(_account => {
