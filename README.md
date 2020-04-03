@@ -4,7 +4,7 @@
 
 ## Demo
 
-Check the demo (here)[https://svelte-dapp.netlify.com/].
+Check out the demo [here](https://svelte-dapp.netlify.com/).
 
 ## Installation
 
@@ -14,7 +14,7 @@ npm install --save @osarrouy/svelte-dapp
 
 ## Usage
 
-You can browse the [`example`](example/) folder to discover more advanced usage.
+You can browse the [`example`](example/) folder to find out about a more advanced usage.
 
 ```javascript
 // MainComponent.svelte
@@ -69,7 +69,9 @@ You can browse the [`example`](example/) folder to discover more advanced usage.
 
 ## API
 
-### `dapp.login`
+### `login / logout`
+
+#### `dapp.login`
 
 `svelte-dapp` allows to log users in through multiple ethereum wallets while transparently syncing their 3Box profile informations and enabling access to their dapp specific storage space. Supported wallet for now:
 
@@ -102,73 +104,100 @@ await dapp
   });
 ```
 
-### `dapp.logout`
+#### `dapp.logout`
 
 ```javascript
 await dapp.logout();
+```
+
+### `profile / storage`
+
+`svelte-dapp` provides a set of helpers to: a. access and update a user's `3Box` generic profile b. access and update a user's `3Box` dapp specific storage space.
+
+If your dapp needs to read / write generic informations about a user's profile: use the `dapp.profile` helpers. If your dapp needs to read / write app specific informations about a user such as settings or preferences: use the `dapp.storage` helpers.
+
+#### `dapp.profile`
+
+```javacript
+await dapp.profile.set('name', 'John Doe')
+await dapp.profile.get('name')
+// => 'John Doe'
+await dapp.profile.set('age', 18, { private: true })
+await dapp.profile.get('age', { private: true})
+// => 18
+
+```
+
+#### `dapp.storage`
+
+```javacript
+await dapp.storage.set('lang', 'en')
+await dapp.storage.get('lang')
+// => 'en'
+await dapp.storage.set('relationship', 'complicated', { private: true })
+await dapp.storage.get('relationship', { private: true})
+// => 'complicated'
+
 ```
 
 ## Stores
 
 ### `wallet`
 
-```javacript
+```javascript
 <script>
-  import { dapp } from '@osarrouy/svelte-dapp'
+  import { dapp }   from '@osarrouy/svelte-dapp'
   import { wallet } from '@osarrouy/svelte-dapp/stores'
 
   dapp
     .login('formatic')
     .then(_ => {
       console.log($wallet)
-
       // {
-      //   type: 'metamask' || 'fortmatic' || ...
+      //   type:    'metamask' || 'fortmatic' || ...
       //   account: '0x76...',
       //   network: 'mainnet' || 'kovan' || ...
       //   provider: Object
       // }
     })
+<script>
 ```
 
 ### `profile`
 
-The `dapp.user` namespace provides a set of helpers to:
+```javascript
+<script>
+  import { dapp }    from '@osarrouy/svelte-dapp'
+  import { profile } from '@osarrouy/svelte-dapp/stores'
 
-1. access and update a user's `3Box` generic profile
-2. access and update a user's `3Box` app specific storage space
-3. access and refreshed cached generic informations
-
-If your dapp needs to read / write generic informations about a user's profile: use the `dapp.user.profile` sub-namespace. If your dapp needs to read / write app specific informations about a user such as settings or preferences: use the `dapp.user.storage` sub-namespace.
-
-#### `dapp.user.profile`
-
-```javacript
-await dapp.user.profile.get('name')
-await dapp.user.profile.set('age', 18, { private: true })
+  dapp
+    .login('formatic')
+    .then(_ => {
+      console.log($profile)
+      // {
+      //    address 0x85c...
+      //    did     did:3:....
+      //    name    John Doe
+      //    avatar  url of a user-defined picture and standard Ethereum blockie otherwise
+      //    url     https://3box.io/0x85c...
+      //    raw:    Object [raw 3Box profile]
+      // }
+    })
+<script>
 ```
 
-#### `dapp.user`
+### `isLoggedIn`
 
-`svelte-dapp` caches and prettifies of set of generic informations about a user's profile on login.
+```javascript
+<script>
+  import { dapp }       from '@osarrouy/svelte-dapp'
+  import { isLoggedIn } from '@osarrouy/svelte-dapp/stores'
 
-```javacript
-dapp.user.address // ethereum public address
-dapp.user.did     //
-dapp.user.name    //
-dapp.user.avatar  // url pointing towards a user-specified profile image or a generic blockie substitute if the user has no avatar registered
-dapp.user.url     //
-dapp.user.raw     //
-```
-
-These informations are fetched on user login. If you need to refresh these informations at some point - _e.g._ because the user has updated its profile - you can call `dapp.user.refresh()`.
-
-```javacript
-await dapp.user.refresh()
-```
-
-### `dapp.helpers`
-
-```javacript
-console.log(await dapp.profiles.of(address_or_DID)
+  isLoggedIn.subscribe(_isLoggedIn => {
+    if (_isLoggedIn) {
+      console.log('User is now logged in!')
+      console.log('You can use dapp.profile and dapp.storage safely.')
+    }
+  })
+<script>
 ```
