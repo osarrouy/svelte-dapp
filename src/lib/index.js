@@ -1,4 +1,4 @@
-import { settings as $settings } from "../stores";
+import { isLoggedIn as $isLoggedIn, settings as $settings } from "../stores";
 import profile from "./profile";
 import storage from "./storage";
 import wallet from "./wallet";
@@ -42,6 +42,7 @@ const login = _wallet => {
               pe.eventEmitter.emit("storage:synced", _space);
             })
             .then(_space => {
+              $isLoggedIn.set(true);
               pe.resolve(_profile);
             });
         });
@@ -51,7 +52,7 @@ const login = _wallet => {
 };
 
 const logout = () => {
-  wallet.logout();
+  $isLoggedIn.set(false);
 };
 
 export default {

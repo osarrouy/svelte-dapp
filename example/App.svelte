@@ -4,7 +4,7 @@
   import Profile from "./components/Profile";
   import Dapp from "../src";
   import { dapp } from "../src";
-  import { infra, profile, settings, wallet } from "../src/stores";
+  import { infra, isLoggedIn, profile, settings, wallet } from "../src/stores";
   import { fly } from "svelte/transition";
 
   let isLogging = false;
@@ -12,6 +12,11 @@
   infra.subscribe(_infra => {
     console.log("[infra:update]");
     console.log(_infra);
+  });
+
+  isLoggedIn.subscribe(_isLoggedIn => {
+    console.log("[isLoggedIn:update]");
+    console.log(_isLoggedIn);
   });
 
   profile.subscribe(_profile => {
@@ -65,8 +70,8 @@
     <Login on:close={() => (isLogging = false)} />
   {/if}
   <main>
-    {#if $profile}
-      <Profile profile={$profile} />
+    {#if $isLoggedIn}
+      <Profile on:logout={() => dapp.logout()} />
     {:else}
       <section class="hero" transition:fly>
         <svg height="10" width="10">

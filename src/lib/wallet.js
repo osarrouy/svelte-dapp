@@ -1,8 +1,20 @@
-import { settings as $settings, wallet as $wallet } from "../stores";
+import {
+  isLoggedIn as $isLoggedIn,
+  settings as $settings,
+  wallet as $wallet
+} from "../stores";
 import Fortmatic from "fortmatic";
 import PromiEvent from "web3-core-promievent";
 
+let isLoggedIn;
 let settings;
+
+$isLoggedIn.subscribe(_isLoggedIn => {
+  if (isLoggedIn && !_isLoggedIn) {
+    wallet.logout();
+  }
+  isLoggedIn = _isLoggedIn;
+});
 
 $settings.subscribe(_settings => {
   settings = _settings;

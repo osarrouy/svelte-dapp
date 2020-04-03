@@ -1,14 +1,23 @@
-import { infra as $infra, settings as $settings } from "../stores";
+import {
+  infra as $infra,
+  isLoggedIn as $isLoggedIn,
+  settings as $settings
+} from "../stores";
 import PromiEvent from "web3-core-promievent";
 
 let infra;
+let isLoggedIn;
 let settings;
 
 $infra.subscribe(_infra => {
-  if (infra && infra.box && !_infra.box) {
+  infra = _infra;
+});
+
+$isLoggedIn.subscribe(_isLoggedIn => {
+  if (isLoggedIn && !_isLoggedIn) {
     storage.logout();
   }
-  infra = _infra;
+  isLoggedIn = _isLoggedIn;
 });
 
 $settings.subscribe(_settings => {
@@ -39,6 +48,20 @@ const storage = {
   },
   logout: () => {
     $infra.update(_infra => ({ ..._infra, ...{ space: null } }));
+  },
+  set: (key, value, opts = { private: false }) => {
+    if (opts.private) {
+      return infra.space.private.set(key, value);
+    } else {
+      return infra.space.public.set(key, value);
+    }
+  },
+  get: (key, opts = { private: false }) => {
+    if (opts.private) {
+      return infra.space.private.get(key);
+    } else {
+      return infra.space.public.get(key);
+    }
   }
 };
 
